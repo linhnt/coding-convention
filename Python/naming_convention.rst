@@ -70,3 +70,7 @@ Python Naming Conventions
 =============
 * Constant names must be fully capitalized
 * Words in a constant name should be separated by an underscore
+
+11. References
+===========
+* https://peps.python.org/pep-0008/#naming-conventions
