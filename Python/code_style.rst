@@ -38,6 +38,7 @@ Python Coding Style Conventions
 * "From ... import ..."-style imports may be combined together on one line if possible.
 * Wildcard imports (from <module> import *) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which is to republish an internal interface as part of a public API (for example, overwriting a pure Python implementation of an interface with the definitions from an optional accelerator module and exactly which definitions will be overwritten isn’t known in advance).
 * Imports should be grouped in the following order
+
   + Standard library imports.
   + Related third party imports.
   + Local application/library specific imports.
