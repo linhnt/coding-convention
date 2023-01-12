@@ -1,4 +1,4 @@
-# Coding convention ReactJS
+# Coding convention ReactNative
 
 ## Mục lục
 1. Đặt tên
@@ -23,13 +23,11 @@
 ## 1. Đặt tên
 
 **1.1. Files, Extensions**
-
 - Do dự án dùng typescript nên các file phải có các đuôi `.ts`, `.tsx`. Tuy nhiên các files nào import export đơn giản thì chỉ cần đuôi `.ts` Còn các files cần tới vòng đời (component life-cycles) hoặc cần import hooks thì phải dùng đuôi `.tsx`.
 - Components/Screens/Pages thì đặt tên **PascalCase**. Ví dụ `HomeScreen.tsx`, `HomeTab.tsx`, `StyledButton.tsx`, v.v.
 - Các files không phải các trường hợp trên thì dùng **camelCase**. Ví dụ `utils.ts`, `helper.tsx`, v.v.
 
 **1.2. Variables, Constants, Interfaces**
-
 - Variables
   - Viết theo **camelCase**, bằng tiếng Anh, rõ nghĩa tường minh.
   - Không đặt tên chung chung như `item`, `index`, `count`, v.v.
@@ -43,20 +41,17 @@
   - Viết theo kiểu **PascalCase** như `IFormRegister`, v.v.
 
 **1.3. Functions, Methods**
-
 - Viết theo **camelCase**, bằng tiếng Anh, rõ nghĩa tường minh.
 - Tên phải là 1 hành động.
 - Nên bắt đầu bởi 2 từ **on** hoặc **handle**, ví dụ `onChangeText`, `handleSearchPosts`, v.v. 
 
 **1.4. Projects**
-
 - Tên Projects là tên gọi thường ngày của dự án, hoặc là **mã SKU** của Projects trên Backlog.
 - Viết theo lower-case.
 - Hậu tố tuỳ vào dạng dự án. **-web**, **-app**, **-api**, **-cms**
 - Ví dụ: `test-app`, `test-next-web`, `test-prev-api`, v.v.
 
 **1.5. Branches**
-
 - Tên Branches viết theo lower-case.
 - Thường có tiền tố bắt đầu từ **feature/**, **fixbug/** hoặc **fix/**, **changerequest/** hoặc **cr/**, **hotfix/**, v.v.
 - Hậu tố cần nêu rõ mục đích tạo nhánh, tránh viết quá chung chung như **test**, **change**, v.v.
