@@ -55,7 +55,7 @@ Python Coding Style Conventions
 ===========
 
 * First and foremost, comments should be up to date and accurate. When updating code, always make sure to update any comments that refer to it.
-* Comments should be wrapped to 72 characters.
+* Comments should be wrapped to 120 characters.
 * Use plain English sentences with proper spelling and grammar. Strongly prefer complete sentences.
 * Single sentence comments need not end in a period.
 * Clever humor is acceptable on occasion.
