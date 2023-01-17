@@ -13,6 +13,7 @@
 - [Lint](#lint)
   - [Standard references](#standard-references)
   - [Tools](#tools)
+  - [List of unused eslint rules](#list-of-unused-eslint-rules)
 
 ## Nguồn tham khảo:
 
@@ -33,7 +34,9 @@
 
 - Variables
   - Viết theo **camelCase**, bằng tiếng Anh, rõ nghĩa tường minh.
-  - Không đặt tên chung chung như `item`, `index`, `count`, v.v.
+  - Không đặt tên chung chung như `data`, `request`, `response`, v.v.
+  - Không sử dụng các từ ngữ dư thừa (noise words) như: `info`, `data`, `variables`, `object`, v.v.
+  - Tên Array/List chỉ cần là danh từ số nhiều, không cần hậu tố `arr`, `list`. Ví dụ như **users**, **posts**, v.v.
   - Boolean thì cần theo 1 trong 3 cấu trúc: **[is + tính từ]**, **[can + động từ]**, **[has + động từ dạng phân từ II]**. Ví dụ: `isChecked`, `canDelete`, `hasBeenAdded`, v.v.
 - Constants
   - Kế thừa Variables bên trên.
@@ -42,24 +45,69 @@
   - Kế thừa Variables bên trên.
   - Cần có tiền tố `I` ở đầu biến.
   - Viết theo kiểu **PascalCase** như `IFormRegister`, v.v.
+- Enums
+  - Kế thừa Variables bên trên.
+  - Cần có tiền tố `E` ở đầu biến.
+  - Tên của enums theo kiểu **PascalCase**.
+  - Keys bên trong viết theo dạng UPPER_SNAKE_CASE.
+  - Ví dụ:
+    ```
+    EGenders {
+      MALE = 1,
+      FEMALE = 2
+    }
+    ```
 
 ### Functions, Methods
 
 - Viết theo **camelCase**, bằng tiếng Anh, rõ nghĩa tường minh.
-- Tên phải là 1 hành động.
+- Tên functions/methods phải là 1 hành động.
+- Hạn chế viết hàm trong `return` của `render`
+
+  ```
+  // Không nên
+  const Component = () => {
+    return (
+      <Button onPress={() => { console.log(1) }}>
+        <Text>Test Button</Text>
+      </Button>
+    )
+  }
+
+  // Nên
+  const Component = () => {
+    const handlePress = () => {
+      console.log(1);
+    }
+    return (
+      <Button onPress={handlePress}>
+        <Text>Test Button</Text>
+      </Button>
+    )
+  }
+  ```
+
 - Nên bắt đầu bởi 2 từ **on** hoặc **handle**, ví dụ `onChangeText`, `handleSearchPosts`, v.v.
 
 ### Projects
 
-- Tên Projects là tên gọi thường ngày của dự án, hoặc là **mã SKU** của Projects trên Backlog.
-- Viết theo lower-case.
-- Hậu tố tuỳ vào dạng dự án. **-web**, **-app**, **-api**, **-cms**
-- Ví dụ: `test-app`, `test-next-web`, `test-prev-api`, v.v.
+- Git/Remote
+  - Tên Projects là tên gọi thường ngày của dự án, hoặc là **mã SKU** của Projects trên Backlog.
+  - Viết theo lower-case.
+  - Hậu tố tuỳ vào dạng dự án. **-web**, **-app**, **-api**, **-cms**
+  - Ví dụ: `test-app`, `test-next-web`, `test-prev-api`, v.v.
+- Lưu ý về Cấu trúc (Structure)
+  - `constants.ts` là file chứa các hằng số của toàn dự án.
+  - `enums.ts` là file chứa các loại/enum của toàn dự án.
+  - `validate.ts` là file chứa các hàm validate form của toàn dự án.
+  - `formats.ts` là file chứa các hàm format/hàm convert của toàn dự án _(liên quan tới số, thời gian, tiền tệ, v.v.)_
+  - `helpers.ts` là file chứa các hàm tiện ích dùng chung của toàn dự án.
+  - `yarn.lock` và `package-json.lock` cần được push lên git, để bảo toàn sự đồng bộ (synchronization) giữa các máy local với nhau.
 
 ### Branches
 
-- Tên Branches viết theo lower-case.
-- Thường có tiền tố bắt đầu từ **feature/**, **fixbug/** hoặc **fix/**, **changerequest/** hoặc **cr/**, **hotfix/**, v.v.
+- Tên Branches viết theo lower-kebab-case.
+- Thường có tiền tố bắt đầu từ **feature/**, **feat/**, **fixbug/** hoặc **fix/**, **changerequest/** hoặc **cr/**, **hotfix/**, v.v.
 - Hậu tố cần nêu rõ mục đích tạo nhánh, tránh viết quá chung chung như **test**, **change**, v.v.
 - Ví dụ: `feature/login-ui`, `fix/api-register-no-error-handle`, `hotfix/bug-message-button`, `cr/add-button-save-video` v.v.
 
@@ -74,8 +122,8 @@
 - Các phần quan trọng của template gồm:
   - Mục đích của PR/MR.
   - Link backlog của các tasks/bugs/change-requests có liên quan tới PR/MR (nếu có).
-  - Phạm vi ảnh hưởng của PR/MR (BugFix, NewFeature, BreakingChange, DocumentUpdate).
-  - Screenshots cho thấy sự thay đổi hoặc tạo mới UI (thường là 1 ảnh design kèm với 1 ảnh màn iPhone và 1 màn Android, nếu vội quá có thể chỉ cần ảnh màn iPhone hoặc Android).
+  - Screenshots cho thấy sự thay đổi hoặc tạo mới UI (thường là 1 ảnh design kèm với 1 ảnh màn iPhone và 1 màn Android).
+  - Phạm vi ảnh hưởng của PR/MR (BugFix, NewFeature, BreakingChange, DocumentUpdate). **_[optional]_**
 
 ## Lint
 
@@ -92,3 +140,26 @@
 - commitlint/commitizen/cz-conventional-changelog
 - eslint
 - prettier
+
+### List of `off` eslint rules
+
+- global-require
+- react/prop-types
+- @typescript-eslint/consistent-type-definitions
+- @typescript-eslint/explicit-function-return-type
+- @typescript-eslint/no-explicit-any
+- @typescript-eslint/no-non-null-assertion
+- @typescript-eslint/no-throw-literal
+- @typescript-eslint/no-use-before-define
+- @typescript-eslint/no-var-requires
+- @typescript-eslint/unbound-method
+- @typescript-eslint/camelcase
+- react-hooks/exhaustive-deps
+- unused-imports/no-unused-vars-ts
+- no-nested-ternary
+- import/prefer-default-export
+- no-param-reassign
+- @typescript-eslint/explicit-module-boundary-types
+- react/display-name
+- default-param-last
+- no-use-before-define
