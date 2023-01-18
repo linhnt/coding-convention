@@ -27,7 +27,6 @@ let x = y + z;
 const myArray = ["Volvo", "Saab", "Fiat"];
 ```
 
-Lùi đầu dòng các khối lệnh bằng dấu cách (2 dấu cách), không dùng dấu tab
 
 Dùng dấu `;` để đánh dấu kết thúc câu lệnh
 
