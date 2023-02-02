@@ -1,4 +1,4 @@
-# Coding convention ReactNative
+# ReactNative Coding convention
 
 ## Mục lục
 
