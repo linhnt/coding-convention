@@ -572,3 +572,45 @@ if(condition) {
 ```
 if(condition) {doSomething();}
 ```
+
+**24.Quy tắc về số lượng**
+
+<b>Không có giới hạn cứng đây chỉ là nên dùng</b>
+- Một function không nên quá 30 dòng
+
+- Một class không nên vượt quá 500 dòng
+
+- Một function chỉ giải quyết 1 task
+
+- Một hàm không nên quá 3 tham số
+
+- Khi khai báo biến, một dòng chỉ chứa một biến.
+
+- Một dòng không nên dài quá 120 ký tự
+
+- Các câu lệnh lồng nhau tối đa 4 cấp.
+
+**25.Quy tắc xuống hàng**
+
+– Nếu có dấu "," thì xuống hàng sau dấu ",".
+
+– Xuống hàng trước toán tử + - ...
+
+– Nếu có nhiều cấp lồng nhau, thì xuống hàng theo từng cấp.
+
+– Dòng xuống hàng mới thì được bắt đầu ở cùng cột với đoạn lệnh cùng cấp ở trên.
+
+**26.Quy tắc chuẩn viết code**
+- Sử dụng 4 khoảng trắng(spaces) để thụt dòng
+
+- Phải có 1 dòng trắng sau khi khai báo namespace và phải có 1 dòng trắng sau các khai báo use
+
+- Thẻ đóng và mở của 1 hàm {} phải nằm riêng biệt trên một dòng.
+
+- Trước thẻ mở và đóng hàm {} thì không được có 1 dòng trắng.
+
+- Phải dùng dấu nháy đơn ‘ để khai báo chuỗi không chứa biến, nếu chuỗi có chứa kí tự ‘ thì dùng dấu nháy kép để bọc bên ngoài
+
+- Có 1 space trước và sau các toán tử như +, -, , /, ., >, <, ==
+
+- Một function chỉ nên có tối đa 3 return
